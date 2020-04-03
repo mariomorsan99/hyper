@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>{{recoveredSearchName}}</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/home">Inicio</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/searches">B&uacute;squedas</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong *ngIf="!editSearch">Nueva b&uacute;squeda</strong>
+                <strong *ngIf="editSearch">Modificando b&uacute;squeda</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="fh-breadcrumb">
+    <div class="full-height">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox-content full-height">
+                        <ul class="nav nav-pills nav-fill" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active tabstore " id="tabstore" href="#store" data-toggle="tab" role="tab" aria-controls="store" aria-selected="true">Selección de comercios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link taboutlook " id="taboutlook" href="#outlook" data-toggle="tab" role="tab" aria-controls="outlook" aria-selected="false">Selección de artículos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link tabprogramming " id="tabprogramming" href="#programming" data-toggle="tab" role="tab" aria-controls="programming" aria-selected="false">Programar búsqueda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link tabsummary " id="tabsummary" href="#summary" data-toggle="tab" role="tab" aria-controls="summary" aria-selected="false">Resumen</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content bg-light mt-3 mb-3 p-3 rounded" id="tabContent">
+                            <div class="tab-pane fade show active" id="store" role="tabpanel" aria-labelledby="store-tab">
+                                <app-selectstores></app-selectstores>
+                            </div>
+                            <div class="tab-pane fade" id="outlook" role="tabpanel" aria-labelledby="outlook-tab">
+                                <app-outlookview></app-outlookview>
+                            </div>
+                            <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
+                                <app-programmingview [ItemInfo]="search"></app-programmingview>
+                            </div>
+                            <div class="tab-pane fade" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+                                <app-summaryview [SearchStep4]="searchStep3"></app-summaryview>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="float-right">
+                                <a class="btn btn-wizard prev text-white" id="prev" (click)="PreviousStep()" data-toggle="tab" role="tab" aria-controls="store" aria-selected="true">Anterior</a>&nbsp;
+                                <span *ngIf="loadingProgram">
+                                    <button  type="button" id="btnprogram" class="ladda-button btn btn-primary btn-search" data-style="zoom-in" (click)="NextStep()">{{nameNext}}</button>
+                                </span>
+                                <span *ngIf="!loadingProgram">
+                                    <a class="btn btn-wizard next text-white" id="next" (click)="NextStep()" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">{{nameNext}}</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

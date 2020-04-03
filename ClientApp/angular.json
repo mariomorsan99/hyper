@@ -1,0 +1,190 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "XL.Hyperion.Portal.Web": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "app",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "progress": true,
+                        "extractCss": true,
+                        "outputPath": "dist",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "assets": [
+                            "src/assets",
+                            { "glob": "**/*", "input": "node_modules/@fortawesome/fontawesome-free/webfonts", "output": "assets/fonts" }
+                        ],
+                        "styles": [
+                            "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "node_modules/animate.css/animate.min.css",
+                            "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
+                            "node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css",
+                            "node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css",
+                            "node_modules/datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4.min.css",
+                            "node_modules/toastr/build/toastr.min.css",
+                            "node_modules/ladda/dist/ladda-themeless.min.css",
+                            "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css",
+                            "src/raw/scss/styles.scss"
+                        ],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/popper.js/dist/umd/popper.min.js",
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            "node_modules/metismenu/dist/metisMenu.min.js",
+                            "node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+                            "node_modules/moment/moment.js",
+                            "node_modules/datatables.net/js/jquery.dataTables.min.js",
+                            "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+                            "node_modules/jszip/dist/jszip.min.js",
+                            "node_modules/pdfmake/build/pdfmake.min.js",
+                            "node_modules/pdfmake/build/vfs_fonts.js",
+                            "node_modules/datatables.net-buttons/js/dataTables.buttons.min.js",
+                            "node_modules/datatables.net-buttons/js/buttons.colVis.min.js",
+                            "node_modules/datatables.net-buttons/js/buttons.html5.min.js",
+                            "node_modules/datatables.net-buttons/js/buttons.print.min.js",
+                            "node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js",
+                            "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js",
+                            "node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js",
+                            "node_modules/datatables.net-rowreorder/js/dataTables.rowReorder.min.js",
+                            "node_modules/datatables.net-rowreorder-bs4/js/rowReorder.bootstrap4.min.js",
+                            "src/raw/js/inspinia.js",
+                            "node_modules/pace-js/pace.min.js",
+                            "node_modules/toastr/toastr.js",
+                            "node_modules/slick-carousel/slick/slick.min.js",
+                            "node_modules/icheck/icheck.min.js",
+                            "node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js",
+                            "node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js",
+                            "node_modules/tinycon/tinycon.min.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "XL.Hyperion.Portal.Web:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "XL.Hyperion.Portal.Web:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "XL.Hyperion.Portal.Web:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "karmaConfig": "src/karma.conf.js",
+                        "styles": [
+                            "styles.css"
+                        ],
+                        "scripts": [],
+                        "assets": [
+                            "src/assets"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "src/tsconfig.app.json",
+                            "src/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist-server",
+                        "main": "src/main.ts",
+                        "tsConfig": "src/tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "dev": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": true
+                        },
+                        "production": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false
+                        }
+                    }
+                }
+            }
+        },
+        "XL.Hyperion.Portal.Web-e2e": {
+            "root": "e2e/",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "XL.Hyperion.Portal.Web:serve"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": "e2e/tsconfig.e2e.json",
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "XL.Hyperion.Portal.Web"
+}

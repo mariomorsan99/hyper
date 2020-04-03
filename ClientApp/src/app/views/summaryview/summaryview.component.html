@@ -1,0 +1,95 @@
+<div class="ibox">
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="detail" class="row">
+                    <div id="detail-contend" class="col-lg-6">
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Nombre de la b&uacute;squeda:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"> {{Name}}</dd>
+                            </div>
+                        </dl>
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Frecuencia:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1">Cada {{ Frequency }} </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="col-lg-6" id="cluster_info">                
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Inicio:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"> {{DateSince | date:'mediumDate'}}</dd>
+                            </div>
+                        </dl>
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Fin:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"> {{DateUntil | date:'mediumDate'}}</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="m-b-md">
+                    <h2>Comercios seleccionados</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="footable table table-stripped toggle-arrow-tiny tablet breakpoint footable-loaded">
+                        <thead>
+                            <tr>
+                                <th>Comercio</th>
+                                <th>Art&iacute;culo seleccionado</th>  
+                                <th>Precio actual</th> 
+                                <th>Marca</th>                      
+                                <th>Modelo</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of tableSummary">
+                            <td>
+                                {{item.name}}
+                            </td>
+                            <td>
+                                {{item.commercename}}
+                            </td>  
+                            <td>
+                                <strong>{{  item.price | currency: 'USD' | lowercase }}</strong>
+                            </td> 
+                            <td>
+                                {{item.brand}}
+                            </td>
+                            <td>
+                                {{item.model}}
+                            </td>                 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

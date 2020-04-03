@@ -1,0 +1,39 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:55525",
+      "sslPort": 44386
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "XL.Hyperion.Portal.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "UrlApiGetCommerces": "https://hprn-api-get-commerces-943772590aa2e996.azurewebsites.net/api/commerces",
+        "UrlApiSearch": "https://hprn-api-search-943772590aa2e996.azurewebsites.net/api/search",
+        "UrlApiSearchDetail": "https://hprn-api-searchdetail-943772590aa2e996.azurewebsites.net/api/search/detail",
+        "UrlApiSetSearch": "https://hprn-api-set-search-943772590aa2e996.azurewebsites.net/api/search",
+        "UrlApiGetSearches": "https://hprn-api-get-searches-943772590aa2e996.azurewebsites.net/api/searches",
+        "UrlApiGetSearch": "https://hprn-api-get-search-943772590aa2e996.azurewebsites.net/api/searches/{id}",
+        "KeyApiGetCommerces": "mQfYcmbKs9DvBJ9lOSFE2kn3A7vEIMOdjXayk4CKQeUrYkxcues8zA==",
+        "KeyApiGetSearch": "Nm/6/4Nf725Rc4goRxfjEJtJPUIC1dfHOix9tdjLHO2jZaoebKkwkg==",
+        "KeyApiGetSearches": "aS9dc8IFbhME7zBQLlKVOz0/dm2g2Qtnw1R7itrMCHskG1avTA9YuQ==",
+        "KeyApiSearch": "1VxGPn9aHKp0zXbOYTWxztR2VNhLJTPeCkk6K5g5bDvsIBh3hTowWQ==",
+        "KeyApiSearchDetail": "0fRirFu/pqwoymE2GgKk7WM5NnBvgGUFWmVPbZUSHRJIAUi4P6wCXA==",
+        "KeyApiSetSearch": "LMNupDr4n9a3yYj4syHyK9OldJuXt3LnaCRJpac0w2PNaXePhDInOA=="
+      }
+    }
+  }
+}
